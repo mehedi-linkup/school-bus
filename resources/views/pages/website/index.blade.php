@@ -19,51 +19,14 @@
                     <div class="banner">
                         <!-- Image -->
                         <div class="image-wrapper">
-                            <img src="{{asset($item->slider)}}" class="image vh-100 fit-cover"
-                                alt="This is an example description for this item.">
+                            <img src="{{asset($item->image)}}" class="image vh-100 fit-cover"
+                                alt="Slider image not found.">
                         </div>
                         <!-- Overlay -->
                         <div class="overlay black-50"></div>
                     </div>
                 </div>
                 @endforeach
-                <!-- Slide 2 -->
-                <div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 4" style="width: 1349px;">
-                    <div class="banner">
-                        <!-- Image -->
-                        <div class="image-wrapper">
-                            <img src="{{asset('website')}}/assets/img/slider/school-bus-slider-2.jpg" class="image vh-100 fit-cover"
-                                alt="This is an example description for this item.">
-                        </div>
-                        <!-- Overlay -->
-                        <div class="overlay black-50"></div>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 4"
-                    style="width: 1349px;">
-                    <div class="banner">
-                        <!-- Image -->
-                        <div class="image-wrapper">
-                            <img src="{{asset('website')}}/assets/img/slider/school-bus-slider-3.jpeg" class="image vh-100 fit-cover"
-                                alt="This is an example description for this item.">
-                        </div>
-                        <!-- Overlay -->
-                        <div class="overlay black-50"></div>
-                    </div>
-                </div>
-                 <!-- Slide 4 -->
-                 <div class="swiper-slide swiper-slide-active" role="group" aria-label="4 / 4"
-                 style="width: 1349px;">
-                    <div class="banner"> 
-                        <div class="image-wrapper">
-                            <img src="{{asset('website')}}/assets/img/slider/school-bus-slider-4.jpg" class="image vh-100 fit-cover"
-                                alt="This is an example description for this item.">
-                        </div>
-                       
-                        <div class="overlay black-50"></div>
-                    </div>
-                </div>
             </div>
             <div class="swiper-button-prev simple ms-2" tabindex="0" role="button" aria-label="Previous slide"
                 aria-controls="swiper-wrapper-17766979f4f110e80" aria-disabled="false"></div>
@@ -83,7 +46,7 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <figure class="mb-0 overflow-hidden">
-                        <img class="img-fluid rounded" src="{{asset('website')}}/assets/img/about.jpg" alt="" />
+                        <img class="img-fluid rounded" src="{{asset($content->about_image)}}" alt="About Image" />
                     </figure>
                 </div>
                 <div class="col-md-6 col-12 d-flex flex-column">
@@ -91,12 +54,8 @@
                         <span class="text-2 text-style-7">About</span>
                         <span class="text-2 text-style-8">Us.</span>
                     </h2>
-                    <div class="">
-                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
-                            ut fermentum. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget 
-                            metus.Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum.
-                             Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus.
-                        </p>
+                    <div class="about-text-box" style="max-height: 316px; overflow: hidden;">
+                        <div style="text-align: justify">{!! Str::of($content->about)->words(150, ' <a class="text-warning" href="http://about-us">See More</a>') !!}</div>
                     </div>
                     <nav class="nav social">
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -112,7 +71,7 @@
 
     <section id="service" class="service pt-4 pb-4">
         <div class="container">
-            <div class="row">
+            <div class="row mb-35">
                 <div class="col-md-12">
                     <h2 class="title black">
                         <span class="text-1 text-style-7">Our </span>
@@ -121,23 +80,12 @@
                     </h2>
                 </div>
             </div>
-            <div class="row mb-35">
-                <div class="col-12 col-md-12">
-                    <!-- Intro -->
-                    <div class="basic-intro">
-                        <div class="description gray">
-                            <p >Our vision is to have our product recognized as the main player in the market and become a reference for other people and companies that intend to venture into the segment.</p>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
             <div class="row g-2">
                 <div class="col-12 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="card has-icon hover-up parent">
                     <div class="card-body rounded-3 small-shadow text-center bg-color white">
                         <div class="img-box" style="overflow: hidden;">
-                            <img src="{{asset('website')}}/assets/img/service/service-1.jpg" alt="" class="img-fluid" style="border-radius: 8px;">
+                            <img src="{{asset('website')}}/assets/img/service/service-1.jpg" alt="" class="img-fluid" style="border-radius: 8px;width:100%;height:160px">
                         </div>
                         <h3 class="title text-style-11 black">Financial Services</h3>
                         <p class="description">Financial services is the provision of services related to financial products by companies and institutions authorized to perform them.</p>
@@ -282,10 +230,6 @@
                     <span class="text-1 text-style-7">Our </span>
                     <span class="text-2 text-style-8">Management</span>
                 </h2>
-                <div class="description gray">
-                    <p>Over many years of work, we have built a very successful history in our area of expertise.
-                    </p>
-                </div>
             </div>
             <div class="row g-4">
                 <div class="col-12 col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
@@ -386,11 +330,6 @@
                             <span class="text-1 text-style-7">Our </span>
                             <span class="text-2 text-style-8">Gallery</span>
                         </h2>
-                        <div class="description gray">
-                            <p>Our vision is to have our product recognized as the main player in the market and
-                                become a reference for other people and companies that intend to venture into the
-                                segment.</p>
-                        </div>
                     </div>
                 </div>
             </div>

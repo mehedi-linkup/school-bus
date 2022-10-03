@@ -173,6 +173,16 @@ mark, .mark {
 	font-size: 0.85rem;
 	color: inherit;
 }
+.container-mini {
+	position: absolute;
+	width: 150px;
+	background-color: #fff;
+	right: 200px;
+	top: 0px;
+}
+.container-mini > .row {
+	width: 100%;
+}
 
 img, svg {
   vertical-align: middle;

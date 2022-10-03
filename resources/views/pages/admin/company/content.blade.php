@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="about" class="mt-2">Company About</label>
-                                <textarea class="form-control form-control-sm" name="about" id="about_description" cols="4" rows="4">{{ $company->about }}</textarea>
+                                <textarea class="form-control form-control-sm @error('about') is-invalid @enderror" name="about" id="about_description" cols="4" rows="4">{{ $company->about }}</textarea>
                                 @error('about')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -108,26 +108,45 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 mb-2">
+                                <label for="s_description" class="mt-2">Short Description</label>
+                                <textarea class="form-control form-control-sm @error('s_description') is-invalid @enderror" name="s_description" id="s_description" rows="8">{{ $company->s_description }}</textarea>
+                                @error('s_description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-4 mb-2">
                                 <label for="logo">Company Logo</label>
-                                <input class="form-control form-control-sm" id="logo" type="file" name="logo" onchange="readURL(this);">
+                                <input class="form-control form-control-sm @error('logo') is-invalid @enderror" id="logo" type="file" name="logo" onchange="readURL(this);">
                                 <div class="form-group my-2">
                                     <img class="form-controlo img-thumbnail" src="#" id="previewImage" style="width: 160px;height: 130px;">
                                 </div>
+                                @error('logo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="col-md-4 mb-2">
-                                <label for="about_image">About Image 1</label>
-                                <input class="form-control form-control-sm" id="about_image" type="file" name="about_image" onchange="readAboutURL(this);">
+                                <label for="about_image">About Image </label>
+                                <input class="form-control form-control-sm @error('about_image') is-invalid @enderror" id="about_image" type="file" name="about_image" onchange="readAboutURL(this);">
                                 <div class="form-group mt-2">
                                     <img class="form-controlo img-thumbnail" src="#" id="previewAboutImage" style="width: 160px;height: 130px;">
                                 </div>
+                                @error('about_image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="col-md-4 mb-2">
+                            {{-- <div class="col-md-4 mb-2">
                                 <label for="bg_image">About Image 2</label>
                                 <input class="form-control form-control-sm" id="bg_image" type="file" name="bg_image" onchange="readBgURL(this);">
                                 <div class="form-group mt-2">
                                     <img class="form-controlo img-thumbnail" src="#" id="previewBgImage" style="width: 160px;height: 130px;">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         
                         <hr class="mt-0">
@@ -186,20 +205,20 @@
     }
     document.getElementById("previewAboutImage").src="{{ $company->about_image }}";
 
-    function readBgURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    // function readBgURL(input) {
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
             
-            reader.onload = function (e) {
-                $('#previewBgImage')
-                    .attr('src', e.target.result)
-                    .width(160)
-                    .height(130);
-            };
+    //         reader.onload = function (e) {
+    //             $('#previewBgImage')
+    //                 .attr('src', e.target.result)
+    //                 .width(160)
+    //                 .height(130);
+    //         };
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    document.getElementById("previewBgImage").src="{{ $company->bg_image }}";
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+    // document.getElementById("previewBgImage").src="{{ $company->bg_image }}";
 </script>
 @endpush

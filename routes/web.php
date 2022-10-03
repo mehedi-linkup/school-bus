@@ -36,6 +36,7 @@ use App\Http\Controllers\Admin\CompanyProfileController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/management', [HomeController::class, 'management'])->name('management');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/video', [HomeController::class, 'video'])->name('video');
@@ -45,6 +46,7 @@ Route::get('/category/subcategory/product/{id}', [HomeController::class, 'produc
 Route::get('/product-detail/{id}', [HomeController::class, 'productDetail'])->name('productDetail');
 Route::get('/news-offers', [HomeController::class, 'news'])->name('news');
 Route::get('/news-detail/{id}', [HomeController::class, 'newsDetail'])->name('newsDetail');
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
 // login
 Route::get('admin', [AuthenticationController::class, 'login'])->name('login');
@@ -90,7 +92,7 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('/product/subcategory/get/{subcat_id}', [ProductController::class, 'getSubCate'])->name('admin.product.get.subcat');
 
     // Service Route
-    Route::get('/services', [ServiceController::class, 'service'])->name('service');
+    Route::get('/services', [ServiceController::class, 'service'])->name('service.index');
     Route::post('service/insert', [ServiceController::class, 'serviceInsert'])->name('store.service');
     Route::get('service/edit/{id}', [ServiceController::class, 'serviceEdit'])->name('edit.service');
     Route::post('service/update/{id}', [ServiceController::class, 'serviceUpdate'])->name('update.service');

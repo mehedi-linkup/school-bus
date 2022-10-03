@@ -17,8 +17,7 @@ class ServiceController extends Controller
     public function serviceInsert(Request $request) {
         $request->validate([
             'name' => 'required',
-            'description' => 'required|min:12',
-            'icon'
+            's_description' => 'required|min:12',
         ]);
 
         try {
@@ -48,7 +47,6 @@ class ServiceController extends Controller
     public function serviceUpdate(Request $request, $id) {
         $request->validate([
             'name' => 'required',
-            'description' => 'required|min:12',
             's_description' => 'required|min:8',
         ]);
 

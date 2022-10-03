@@ -45,7 +45,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <label for="s_description" class="mb-1">Short Description</label>
+                                    <label for="s_description" class="mb-1">Short Description <span class="text-danger">*</span></label>
                                     <textarea name="s_description" class="form-control form-control-sm" id="s_description" rows="3" placeholder="Enter a short description"></textarea>
                                     @error('s_description')
                                         <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                     @enderror
 
 
-                                    <label for="image">Service Image</label>
+                                    <label for="image">Service Image <span class="text-danger">*</span></label>
                                     <input class="form-control form-control-sm" id="image" type="file" name="image" onchange="readImgURL(this);">
                                     <div class="form-group mt-2" style="margin-bottom: 0">
                                         <img class="img-thumbnail" src="#" id="previewImage" style="width: 160px;height: 120px;">
@@ -64,7 +64,7 @@
                             <div class="clearfix border-top">
                                 <div class="float-md-right mt-2">
                                     <button type="reset" class="btn btn-dark btn-sm">Reset</button>
-                                    <button type="submit" class="btn btn-info btn-sm">{{(@$subcategoryData)?'Update':'Create'}}</button>
+                                    <button type="submit" class="btn btn-info btn-sm">{{(@$subcategoryData)?'Update':'Save'}}</button>
                                 </div>
                             </div>
                         </form>
@@ -85,8 +85,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
-                                        
                                         <th>Image</th>
+                                        <th>Short Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -97,18 +97,18 @@
                                             <td>{{ $item->name }}</td>
                                             <td>
                                                 @if($item->image)
-                                                <img src="{{ $item->image }}" alt="" style="width: 30px; height: 26px ";>
+                                                <img src="{{ $item->image }}" alt="" style="width: 200px; height: auto";>
                                                 @else 
                                                 No Data Found
                                                 @endif
                                             </td>                    
-                                            {{-- <td>
+                                            <td>
                                                 @if($item->s_description)
-                                                {!! Str::words($item->s_description, 2, '...') !!}
+                                                {!! Str::words($item->s_description, 15, '...') !!}
                                                 @else
                                                 No Data Found
                                                 @endif
-                                            </td>                                     --}}
+                                            </td>                                    
                                             <td>
                                                 <a href="{{ route('edit.service', $item->id) }}" type="submit" class="btn btn-info btn-mod-info btn-sm mr-1"><i class="fas fa-edit"></i></button>
                                                 <a href="{{ route('delete.service', $item->id) }}" type="submit" class="btn btn-danger btn-mod-danger btn-sm" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash"></i></button>

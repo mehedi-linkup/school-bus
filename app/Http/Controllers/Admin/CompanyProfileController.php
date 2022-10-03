@@ -26,8 +26,8 @@ class CompanyProfileController extends Controller
             'phone' => 'required',
             'address' => 'required|string',
             'logo' => 'mimes:jpg,jpeg,png,bmp',
-            'about_image' => 'mimes:jpg,jpeg,png,bmp',
-            'bg_image' => 'mimes:jpg,jpeg,png,bmp',
+            'about_image' => 'mimes:jpg,jpeg,png,bmp,webp',
+            's_description' => 'max:500'
         ]);
 
         // Image Update
@@ -52,18 +52,19 @@ class CompanyProfileController extends Controller
                 $AboutImage = $this->imageUpload($request, 'about_image', 'uploads/about');
             }
 
-            if($request->hasFile('bg_image')) {
-                if(!empty($company->bg_image) && file_exists($company->bg_image))
-                {
-                    unlink($company->bg_image);
-                }
-                $BgImage = $this->imageUpload($request, 'bg_image', 'uploads/about');
-            }
+            // if($request->hasFile('bg_image')) {
+            //     if(!empty($company->bg_image) && file_exists($company->bg_image))
+            //     {
+            //         unlink($company->bg_image);
+            //     }
+            //     $BgImage = $this->imageUpload($request, 'bg_image', 'uploads/about');
+            // }
             $company->name = $request->name;
             $company->email = $request->email;
             $company->phone = $request->phone;
             $company->address = $request->address;
             $company->about = $request->about;
+            $company->s_description = $request->s_description;
             $company->facebook = $request->facebook;
             $company->youtube = $request->youtube;
             $company->instagram = $request->instagram;
@@ -71,11 +72,12 @@ class CompanyProfileController extends Controller
             $company->linkedin = $request->linkedin;
             $company->logo = $companyLogo;
             $company->about_image = $AboutImage;
-            $company->bg_image = $BgImage;
+            // $company->bg_image = $BgImage;
             $company->save();
             return redirect()->back()->with('success','Update Successful!');        
 
         } catch (\Throwable $th) {
+            throw $th;
             // return redirect()->back()->withInput();
             return redirect()->back()->with('error', 'Update Failed!');
         }    

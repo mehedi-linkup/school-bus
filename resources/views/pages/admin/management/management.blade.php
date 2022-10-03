@@ -14,7 +14,7 @@
                             <span>Update Management</span>
                         @else
                             <i class="fas fa-plus"></i>
-                            <span>Add Management (At most 4 members)</span>
+                            <span>Add Management</span>
                         @endif
                     </h4>
                     <form action="{{ (@$managementData) ? route('management.update', $managementData->id) : route('management.store') }}" method="POST" enctype="multipart/form-data">
@@ -66,7 +66,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="image">Image <span class="text-danger">*</span> (Size: 700px * 800px) </label>
+                                <label for="image">Image <span class="text-danger">*</span></label>
                                 <input class="form-control form-control-sm @error('image') is-invalid @enderror" id="image" type="file" name="image" onchange="readURL(this);">
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -81,7 +81,7 @@
                         <div class="clearfix border-top">
                             <div class="float-md-right mt-2">
                                 <button type="reset" class="btn btn-dark btn-sm">Reset</button>
-                                <button type="submit" class="btn btn-info btn-sm">{{(@$managementData)?'Update':'Create'}}</button>
+                                <button type="submit" class="btn btn-info btn-sm">{{(@$managementData)?'Update':'Save'}}</button>
                             </div>
                         </div>
                     </form>
@@ -102,7 +102,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Image</th>
-                                <th>Title</th>
+                                <th>Name</th>
                                 <th>Designation</th>
                                 <th>Action</th>
                             </tr>
@@ -111,7 +111,7 @@
                             @forelse ($management as $key=>$item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td><img class="border" style="height: 70px; max-width:100%" src="{{ asset('uploads/management/'.$item->image) }}" alt=""></td>
+                                    <td><img class="border" style="height: auto; max-width:20%" src="{{ asset($item->image) }}" alt=""></td>
                                     <td>{{ $item->name }}</td>                                    
                                     <td>{{ $item->designation }}</td>
                                     <td>

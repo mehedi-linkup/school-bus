@@ -44,7 +44,7 @@ class ManagementController extends Controller
             $management = new Management;
             $management->name = $request->name;
             $management->designation = $request->designation;
-            $management->image = $imgName;
+            $management->image = 'uploads/management/'.$imgName;
             $management->facebook = $request->facebook;
             $management->twitter = $request->twitter;
             $management->instagram = $request->instagram;
@@ -96,10 +96,10 @@ class ManagementController extends Controller
             if($image) {
                 $imageName = date('YmdHi').$image->getClientOriginalName();
                 $image->move('uploads/management/', $imageName);
-                if(file_exists('uploads/management/'. $management->image) && !empty($management->image)) {
-                    unlink('uploads/management/' . $management->image);
+                if(file_exists($management->image) && !empty($management->image)) {
+                    unlink($management->image);
                 }
-                $management['image'] = $imageName;
+                $management['image'] = 'uploads/management/'.$imageName;
             }
             $management->facebook = $request->facebook;
             $management->twitter = $request->twitter;
@@ -121,8 +121,8 @@ class ManagementController extends Controller
     public function delete($id)
     {
         $management = Management::find($id);
-        if(file_exists('uploads/management/'.$management->image) AND !empty($management->image)){
-            unlink('uploads/management/'.$management->image);
+        if(file_exists($management->image) AND !empty($management->image)){
+            unlink($management->image);
         }
         $management->delete();
         return Redirect()->back()->with("success", "Management Deleted Successfully");

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\BackImage;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
+use Intervention\Image\Facades\Image;
 use function PHPUnit\Framework\returnSelf;
 
 class BackImageController extends Controller
@@ -19,48 +20,26 @@ class BackImageController extends Controller
     // Company profile Update 
     public function update(Request $request, BackImage $backimage)
     {
-
         $request->validate([
-            'bgimage_other' => 'mimes:jpg,jpeg,png,bmp',
-            'bgimage_news' => 'mimes:jpg,jpeg,png,bmp',
+            'bgimage' => 'mimes:jpg,jpeg,png,bmp,webp',
         ]);
         try {
-            $db_exits = BackImage::first();
-        $embededImageName = '';
-        if($_FILES['bgimage_other']['name']){
-            if(file_exists(public_path('/website/assets/image/section-background/'. $db_exits->bgimage_other)))
-            {
-                unlink(public_path('/website/assets/image/section-background/'. $db_exits->bgimage_other));
+            $imagehas = $request->hasFile('bgimage');
+            if($imagehas) {
+                $image = $request->file('bgimage');
+                $imageName = date('YmdHi').$image->getClientOriginalName();
+                Image::make($image)->resize(1349,250)->save('uploads/background/' . $imageName);
+
+                if(file_exists($backimage->bgimage)){
+                    unlink($backimage->bgimage);
+                }
+                $backimage->bgimage = 'uploads/background/'.$imageName;
+                $backimage->update();
             }
-
-            $image = $_FILES['bgimage_other']['name'];
-            $arr = explode('.',$image);
-            $extension = end($arr);
-            $embededImageName = 'EmbeddedImage.'.$extension;
-            move_uploaded_file($_FILES['bgimage_other']['tmp_name'], public_path('/website/assets/image/section-background/'.$embededImageName));
-        }
-
-        $embededImage2Name = '';
-        if($_FILES['bgimage_news']['name']){
-            if(file_exists(public_path('/website/assets/image/section-background/'. $db_exits->bgimage_news)))
-            {
-                unlink(public_path('/website/assets/image/section-background/'. $db_exits->bgimage_news));
-            }
-
-            $image = $_FILES['bgimage_news']['name'];
-            $arr = explode('.',$image);
-            $extension = end($arr);
-            $embededImage2Name = '31.'.$extension;
-            move_uploaded_file($_FILES['bgimage_news']['tmp_name'], public_path('/website/assets/image/section-background/'.$embededImage2Name));
-        }
-
-        $db_exits->bgimage_other = $embededImageName != '' ? $embededImageName : $db_exits->bgimage_other;
-        $db_exits->bgimage_news = $embededImage2Name != '' ? $embededImage2Name : $db_exits->bgimage_news;
-        $db_exits->save();
-        return redirect()->back()->with('success', 'Update Successfull!');
+            return redirect()->back()->with('success', 'Update Successfull!');
         } catch (\Throwable $th) {
+            throw $th;
             return redirect()->back()->with('error', 'Update Failed!');
         }
-
     }
 }

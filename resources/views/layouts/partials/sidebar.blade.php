@@ -24,33 +24,32 @@
                     Web Content
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse {{ ($pageName == 'content' || $pageName == 'slider' || $pageName == 'backimage' || $pageName == 'news' || $pageName == 'category' || $pageName == 'subcategory' || $pageName == 'management' || $pageName == 'video' || $pageName == 'gallery' || $pageName == 'product' || $pageName == 'partner' || $pageName == 'whatcontent' ? 'show' : '') }}" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <div class="collapse {{ ($pageName == 'content' || $pageName == 'slider' || $pageName == 'service' || $pageName == 'backimage' || $pageName == 'news' || $pageName == 'category' || $pageName == 'subcategory' || $pageName == 'management' || $pageName == 'video' || $pageName == 'gallery' || $pageName == 'product' || $pageName == 'partner' || $pageName == 'whatcontent' ? 'show' : '') }}" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ route('whatwe.edit') }}"><i class="fas fa-minus"></i>&nbsp;About Us</a>
                         <a class="nav-link" href="{{ route('backimage.edit') }}"><i class="fas fa-minus"></i>&nbsp;Background Image</a>
-                        <!-- <a class="nav-link" href="{{ route('service') }}">_Servi_ce</a> -->
-                        <a class="nav-link" href="{{ route('admin.categories') }}"><i class="fas fa-minus"></i>&nbsp;Category</a>
-                        <a class="nav-link" href="{{ route('admin.subcategories') }}"><i class="fas fa-minus"></i>&nbsp;Subcategory</a>
-                        <a class="nav-link" href="{{ route('admin.products') }}"><i class="fas fa-minus"></i>&nbsp;Product</a>
+                        <a class="nav-link" href="{{ route('service.index') }}"><i class="fas fa-minus"></i>&nbsp;Service</a>
+                        {{-- <a class="nav-link" href="{{ route('admin.categories') }}"><i class="fas fa-minus"></i>&nbsp;Category</a> --}}
+                        {{-- <a class="nav-link" href="{{ route('admin.subcategories') }}"><i class="fas fa-minus"></i>&nbsp;Subcategory</a> --}}
+                        {{-- <a class="nav-link" href="{{ route('admin.products') }}"><i class="fas fa-minus"></i>&nbsp;Product</a> --}}
                         <a class="nav-link" href="{{ route('management.index') }}"><i class="fas fa-minus"></i>&nbsp;Management</a>
                         <a class="nav-link" href="{{ route('gallery.index') }}"><i class="fas fa-minus"></i>&nbsp;Gallery</a>
                         <a class="nav-link" href="{{ route('videos') }}"><i class="fas fa-minus"></i>&nbsp;Video</a>
-                        <a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-minus"></i>&nbsp;News & Offers</a>
-                        <a class="nav-link" href="{{ route('partner.index') }}"><i class="fas fa-minus"></i>&nbsp;Partner</a>
+                        {{-- <a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-minus"></i>&nbsp;News & Offers</a> --}}
+                        {{-- <a class="nav-link" href="{{ route('partner.index') }}"><i class="fas fa-minus"></i>&nbsp;Partner</a> --}}
                     </nav>
                 </div>
 
-                {{-- <a class="nav-link {{ ($pageName == 'message' || $pageName == 'query') ? 'active' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                <a class="nav-link {{ ($pageName == 'message') ? 'active' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
-                    Messages
+                    Inbox
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a> --}}
-                {{-- <div class="collapse {{ ($pageName == 'message' || $pageName == 'query') ? 'show' : '' }}" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                </a>
+                <div class="collapse {{ ($pageName == 'message') ? 'show' : '' }}" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('admin.query') }}">Customer Query</a>
-                        <a class="nav-link" href="{{ route('admin.message') }}">Message</a>
+                        <a class="nav-link" href="{{ route('admin.message') }}">Customer Query</a>
                     </nav>
-                </div> --}}
+                </div>
                 <a class="nav-link {{ ($pageName == 'profile' || $pageName == 'register') ? 'active' : 'collapsed' }} " href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
                     <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                     Authentication

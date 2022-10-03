@@ -46,9 +46,9 @@
               </div>
               <!-- Link -->
               <ul class="navbar-nav ms-auto">
-                  <li class="nav-item dropdown has-megamenu hover">
+                  <li class="nav-item">
                       <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="#" data-bs-toggle="dropdown">
+                          href="{{route('home')}}#">
                           <span class="text">Home</span>
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
@@ -58,9 +58,9 @@
                           </svg>
                       </a>
                   </li>
-                  <li class="nav-item dropdown has-megamenu hover">
-                      <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="https://shock-html.codings.dev/home-4.html#" data-bs-toggle="dropdown">
+                  <li class="nav-item">
+                      <a class="nav-link has-icon flutter-underline"
+                          href="{{ route('about') }}">
                           <span class="text">About Us</span>
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
@@ -70,9 +70,9 @@
                           </svg>
                       </a>
                   </li>
-                  <li class="nav-item dropdown has-megamenu hover">
-                      <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="https://shock-html.codings.dev/home-4.html#" data-bs-toggle="dropdown">
+                  <li class="nav-item">
+                      <a class="nav-link has-icon flutter-underline"
+                          href="{{route('service')}}">
                           <span class="text">Service</span>
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
@@ -82,9 +82,9 @@
                           </svg>
                       </a>
                   </li>
-                  <li class="nav-item dropdown has-megamenu hover">
-                      <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="https://shock-html.codings.dev/home-4.html#" data-bs-toggle="dropdown">
+                  <li class="nav-item">
+                      <a class="nav-link has-icon flutter-underline"
+                          href="{{route('management')}}">
                           <span class="text">Management</span>
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
@@ -96,8 +96,8 @@
                   </li>
                   <li class="nav-item dropdown has-megamenu hover">
                       <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="https://shock-html.codings.dev/home-4.html#" data-bs-toggle="dropdown">
-                          <span class="text">Photo Gallery</span>
+                          href="{{route('gallery')}}" data-bs-toggle="dropdown">
+                          <span class="text">Photo Gallery</span><img class="image-icon dropdown-icon" src="{{asset('website/assets/svg/chevron-down-outline.svg')}}" alt="Icon name" data-shock-icon="32" />
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
@@ -105,10 +105,32 @@
                               </path>
                           </svg>
                       </a>
+                      <div class="dropdown-menu megamenu animate fade-down" role="menu">
+                        <div class="container-mini">
+                            <div class="row">
+                              <div class="col-12 col-md-12">
+                                <div class="megamenu-item">
+                                    <ul class="nav-list list-unstyled">
+                                    <li class="nav-item ps-1">
+                                        <a href="home-1.html" class="nav-link parent">
+                                        <span class="text">Photo Gallery</span>                                           
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ps-1 pb-1">
+                                        <a href="home-2.html" class="nav-link parent">
+                                        <span class="text">Video Gallery</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                   </li>
-                  <li class="nav-item dropdown has-megamenu hover">
-                      <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="#contact-us" data-bs-toggle="dropdown">
+                  <li class="nav-item">
+                      <a class="nav-link has-icon flutter-underline"
+                          href="{{ route('contact-us') }}">
                           <span class="text">Contact Us</span>
                           <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">

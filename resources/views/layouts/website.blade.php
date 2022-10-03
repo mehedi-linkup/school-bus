@@ -10,7 +10,7 @@
 	  <meta name="author" content="School Bus"/>
     <meta name="description" content="This is school bus project the text is available only for seo">
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" href="{{asset('website')}}/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset($content->logo)}}" type="image/x-icon">
     <!-- Vendor Style Sheet -->
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/vendor/font-family.min.css">
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/vendor/font-awesome.min.css">

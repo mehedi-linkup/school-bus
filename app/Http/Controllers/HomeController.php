@@ -15,6 +15,7 @@ use App\Models\Management;
 use App\Models\BackImage;
 use App\Models\Messenger;
 use App\Models\Partner;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,11 @@ class HomeController extends Controller
     public function about() {
         $backimage = BackImage::first();
         return view('pages.website.about', compact('backimage'));
+    }
+    public function service() {
+        $backimage = BackImage::first();
+        $service = Service::latest()->get();
+        return view('pages.website.service', compact('service', 'backimage'));
     }
     public function management() {
         $backimage = BackImage::first();
@@ -105,6 +111,10 @@ class HomeController extends Controller
             $backimage = BackImage::first();
             return view('pages.website.not-found', compact('backimage'));
         }
+    }
+    public function contactUs() {
+        $backimage = BackImage::first();
+        return view('pages.website.contact-us', compact('backimage'));
     }
 
 }
