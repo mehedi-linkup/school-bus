@@ -28,11 +28,11 @@
                                     <img class="form-controlo img-thumbnail" src="#" id="previewImage" style="width: 100px;height: 80px; background: #3f4a49;">
                                 </div>
                             </div>
-                        </div>
-                        <div class="clearfix border-top">
-                            <div class="float-md-right mt-2">
-                                <button type="button" id="prev" class="btn btn-dark btn-sm">Prev</button>
-                                <button type="submit" class="btn btn-info btn-sm">Update</button>
+                            <div class="clearfix border-top">
+                                <div class="float-md-right mt-2">
+                                    <button type="button" id="prev" class="btn btn-dark btn-sm">Back</button>
+                                    <button type="submit" class="btn btn-info btn-sm">Update</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -65,7 +65,7 @@
     @endif
 
     document.getElementById("prev").onclick = function () {
-        location.href = "{{ route('gallery') }}";
+        location.href = "{{ route('gallery.index') }}";
     };
 </script>
 @endpush

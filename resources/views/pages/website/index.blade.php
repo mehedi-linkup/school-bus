@@ -74,8 +74,7 @@
             <div class="row mb-35">
                 <div class="col-md-12">
                     <h2 class="title black">
-                        <span class="text-1 text-style-7">Our </span>
-                           
+                        <span class="text-1 text-style-7">Our</span>
                         <span class="text-2 text-style-7">Services</span>
                     </h2>
                 </div>

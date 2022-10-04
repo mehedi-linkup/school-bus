@@ -16,7 +16,7 @@
                         <a class="nav-link" href="{{ route('company.edit') }}"><i class="fa fa-minus"></i>&nbsp;Company Content</a>
                         <a class="nav-link" href="{{ route('slider.index') }}"><i class="fas fa-minus"></i>&nbsp;Slider</a>
                         <a class="nav-link" href="{{ route('maps.edit') }}"><i class="fas fa-minus"></i>&nbsp;Map</a>
-                        <a class="nav-link" href="{{ route('messenger.edit') }}"><i class="fas fa-minus"></i>&nbsp;Messenger</a>
+                        {{-- <a class="nav-link" href="{{ route('messenger.edit') }}"><i class="fas fa-minus"></i>&nbsp;Messenger</a> --}}
                     </nav>
                 </div>
                 <a class="nav-link {{ ($pageName == 'content' || $pageName == 'slide' || $pageName == 'backimage' || $pageName == 'news' || $pageName == 'category' || $pageName == 'subcategory' || $pageName == 'management' || $pageName == 'video' || $pageName == 'gallery' || $pageName == 'product' || $pageName == 'partner' || $pageName == 'whatcontent' ? 'active' : 'collapsed') }}" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
@@ -26,7 +26,7 @@
                 </a>
                 <div class="collapse {{ ($pageName == 'content' || $pageName == 'slider' || $pageName == 'service' || $pageName == 'backimage' || $pageName == 'news' || $pageName == 'category' || $pageName == 'subcategory' || $pageName == 'management' || $pageName == 'video' || $pageName == 'gallery' || $pageName == 'product' || $pageName == 'partner' || $pageName == 'whatcontent' ? 'show' : '') }}" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('whatwe.edit') }}"><i class="fas fa-minus"></i>&nbsp;About Us</a>
+                        {{-- <a class="nav-link" href="{{ route('whatwe.edit') }}"><i class="fas fa-minus"></i>&nbsp;About Us</a> --}}
                         <a class="nav-link" href="{{ route('backimage.edit') }}"><i class="fas fa-minus"></i>&nbsp;Background Image</a>
                         <a class="nav-link" href="{{ route('service.index') }}"><i class="fas fa-minus"></i>&nbsp;Service</a>
                         {{-- <a class="nav-link" href="{{ route('admin.categories') }}"><i class="fas fa-minus"></i>&nbsp;Category</a> --}}

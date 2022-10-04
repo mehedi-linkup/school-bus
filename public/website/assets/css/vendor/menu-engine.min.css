@@ -587,13 +587,13 @@
     padding: 0 1rem 1.25rem
 }
 
-.shock-header .navbar .navbar-nav .megamenu .nav-list .nav-item:first-child .nav-link {
+/* .shock-header .navbar .navbar-nav .megamenu .nav-list .nav-item:first-child .nav-link {
     padding-top: 0
 }
 
 .shock-header .navbar .navbar-nav .megamenu .nav-list .nav-item:last-child .nav-link {
     padding-bottom: 0
-}
+} */
 
 .shock-header .navbar .navbar-nav .megamenu .megamenu-image {
     position: relative;

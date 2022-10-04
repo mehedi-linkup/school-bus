@@ -9,6 +9,9 @@
     <meta name="keywords" content="School Bus"/>
 	  <meta name="author" content="School Bus"/>
     <meta name="description" content="This is school bus project the text is available only for seo">
+
+    <!-- Themes Link -->
+    <!-- https://shock-html.codings.dev/home-7.html -->
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" href="{{asset($content->logo)}}" type="image/x-icon">
     <!-- Vendor Style Sheet -->

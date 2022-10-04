@@ -174,11 +174,12 @@ mark, .mark {
 	color: inherit;
 }
 .container-mini {
-	position: absolute;
-	width: 150px;
-	background-color: #fff;
-	right: 200px;
-	top: 0px;
+    position: absolute;
+    width: 150px;
+    background-color: #fff;
+    right: 184px;
+    top: -27px;
+    border-radius: 2px;
 }
 .container-mini > .row {
 	width: 100%;

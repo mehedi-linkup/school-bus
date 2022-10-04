@@ -29,7 +29,7 @@
         <!-- Srings -->
         <div id="typed-strings">
           <span>talk to you?</span>
-          <span>help your company?</span>
+          <span>make an appointment?</span>
           <span>show solutions?</span>
         </div>   
         <div class="description gray">

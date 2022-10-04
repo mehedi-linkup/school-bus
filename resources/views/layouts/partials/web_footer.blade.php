@@ -87,28 +87,26 @@
                             </div>
                         </div>
                         <div class="footer-item mb-1">
-                            <div class="footer-text">
-                                <p class="link gray"><i class="fa-solid fa-location-crosshairs"></i>
-                                   {{ $content->address }}
-                                </p>
-                            </div>
-
-                            <!-- Button -->
-                            <div class="hover-up-down">
-                                <a href="mailto:{{ $content->email }}" class="gray primary-hover">
-                                    <i class="fa-regular fa-envelope button-icon left-icon gray white-hover"></i>
-                                    <span class="button-text gray white-hover">{{ $content->email }}</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="footer-item">
-                            <!-- Button -->
-                            <div class="hover-up-down">
-                                <a href="tel:{{ $content->phone }}" class="gray primary-hover">
-                                    <i class="fa-solid fa-phone button-icon left-icon gray white-hover"></i>
-                                    <span class="button-text gray white-hover">{{ $content->phone }}</span>
-                                </a>
-                            </div>
+                            <ul class="nav-list list-unstyled">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="fa-solid fa-location-crosshairs"></i>&nbsp;
+                                        <span class="text"> {{ $content->address }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="mailto:{{ $content->email }}" class="nav-link">
+                                        <i class="fa-regular fa-envelope text"></i>&nbsp;
+                                        <span class="text">{{ $content->email }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="tel:{{ $content->phone }}" class="nav-link">
+                                        <i class="fa-solid fa-phone text"></i>&nbsp;
+                                        <span class="text">{{ $content->phone }}</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

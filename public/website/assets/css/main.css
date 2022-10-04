@@ -4692,7 +4692,7 @@ table {
 }
 
 .shock-footer .footer-content .footer-item {
-	margin-bottom: 2.5rem;
+	margin-bottom: 1.3rem;
 }
 
 .shock-footer .footer-content .footer-item:last-child {
@@ -4752,7 +4752,7 @@ table {
 
 .shock-footer .footer-content .nav-link {
 	margin: 0;
-  padding: 0.5rem 0;
+  	padding: 0.25rem 0;
 	font-size: 1rem;
 	color: var(--color-2);
 }
