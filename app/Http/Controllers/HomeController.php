@@ -30,7 +30,8 @@ class HomeController extends Controller
         $news = News::latest()->get();
         $backimage = BackImage::first();
         $partner = Partner::latest()->get();
-        return view('pages.website.index', compact('category', 'slider', 'gallery', 'video', 'management', 'news', 'whatwe', 'backimage', 'partner'));
+        $service = Service::latest()->get();
+        return view('pages.website.index', compact('category', 'slider', 'gallery', 'video', 'management', 'news', 'whatwe', 'backimage', 'partner', 'service'));
     }
     public function about() {
         $backimage = BackImage::first();
@@ -40,6 +41,12 @@ class HomeController extends Controller
         $backimage = BackImage::first();
         $service = Service::latest()->get();
         return view('pages.website.service', compact('service', 'backimage'));
+    }
+    public function  serviceDetail($id) {
+        $backimage = BackImage::first();
+        $service = Service::find($id);
+        $serviceList = Service::latest()->get();
+        return view('pages.website.service-detail', compact('service', 'serviceList', 'backimage'));
     }
     public function management() {
         $backimage = BackImage::first();

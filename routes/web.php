@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\CompanyProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/service-detail/{id}', [HomeController::class, 'serviceDetail'])->name('service-detail');
 Route::get('/management', [HomeController::class, 'management'])->name('management');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/video', [HomeController::class, 'video'])->name('video');

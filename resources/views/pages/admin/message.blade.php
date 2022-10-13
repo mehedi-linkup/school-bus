@@ -78,7 +78,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5">Data Not Found</td>
+                                    <td colspan="6">Data Not Found</td>
                                 </tr>
                             @endforelse
                             

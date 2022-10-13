@@ -44,7 +44,7 @@
     {{-- Scroll to Top --}}
     <div class="side-widget to-right invert-color mix-blend-difference show">
       <div class="item align-v-bottom">
-          <a href="{{asset('/')}}#" class="link hover-up">
+          <a href="#" class="link hover-up">
               <span class="widget float-icon">
                   <i class="fa-solid fa-arrow-up-long icon"></i>
               </span>

@@ -3,27 +3,12 @@
 
 @section('web-content')
 
-<section id="product-background" class="product-background d-flex" style="background-image: url('{{ asset('/website/assets/image/section-background/'.$backimage->bgimage_other) }}')">
-    <div class="container align-self-center">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-12">
-                <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '';">
-                    <ol class="breadcrumb justify-content-center">
-                      <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                      <span>&nbsp;/&nbsp;</span>
-                      <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                    </ol>
-                  </nav>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section id="gallery" class="our-gallery section-padding">
     <div class="container">
         <div class="row">
             <h2 class="fs-2 fw-bold text-center text-uppercase"><span class="section-border-black">Best Selling
                     Products</span></h2>
+                    <div id="demo"></div>
         </div>
         <div class="row">
             @foreach ($gallery as $item)
@@ -38,5 +23,13 @@
         </div>
     </div>
 </section>
-
 @endsection
+{{-- @push('web-js')
+    <script>
+        let mehedi = location.pathname;
+        console.log(mehedi.slice('/'))
+        let myArray = mehedi.split('/');
+
+        document.getElementById("demo").innerHTML = myArray.pop();
+    </script>
+@endpush --}}

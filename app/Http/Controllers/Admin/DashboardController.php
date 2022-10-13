@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Gallery;
 use App\Models\User;
 use App\Models\Slider;
 use App\Models\Query;
-
-
+use App\Models\Service;
 
 class DashboardController extends Controller
 {
@@ -24,8 +24,8 @@ class DashboardController extends Controller
     {
         $users = count(User::all());
         $slider = count(Slider::all());
-        $product = count(Product::all());
-        $category = count(Category::all());
-        return view('pages.admin.home', compact('users', 'slider', 'product','category'));
+        $service = count(Service::all());
+        $photos = count(Gallery::all());
+        return view('pages.admin.home', compact('users', 'slider', 'service','photos'));
     }
 }

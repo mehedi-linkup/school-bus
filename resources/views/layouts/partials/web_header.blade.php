@@ -112,7 +112,7 @@
                                 <div class="megamenu-item">
                                     <ul class="nav-list list-unstyled">
                                     <li class="nav-item ps-1">
-                                        <a href="home-1.html" class="nav-link parent">
+                                        <a href="{{ route('gallery') }}" class="nav-link parent">
                                         <span class="text">Photo Gallery</span>                                           
                                         </a>
                                     </li>

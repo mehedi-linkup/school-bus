@@ -123,24 +123,24 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card p-md-3 mb-4" style="background-color: #1776c9;">
                     <div class="card-body">
-                        <div class="icon" style="color: #f59e0b;"><i class="fas fa-tags"></i></div>
-                        <div class="title">Product Category</div>
-                        <div class="value">{{$category}}</div>
+                        <div class="icon" style="color: #f59e0b;"><i class="fas fa-plane-departure"></i></div>
+                        <div class="title">Total Services</div>
+                        <div class="value">{{$service}}</div>
                     </div> 
                     <div class="card-footer d-flex align-items-center">
-                        <a href="{{route('admin.categories')}}" class="stretched-link link-3">View Details</a>
+                        <a href="{{route('service.index')}}" class="stretched-link link-3">View Details</a>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card p-md-3 mb-4" style="background-color:#ebcba1;">
                     <div class="card-body">
-                        <div class="icon" style="color: #ea5455;"><i class="fas fa-box-open"></i></div>
-                        <div class="title">Total Product</div>
-                        <div class="value">{{$product}}</div>
+                        <div class="icon" style="color: #ea5455;"><i class="fas fa-photo-video"></i></div>
+                        <div class="title">Total Photos</div>
+                        <div class="value">{{$photos}}</div>
                     </div>
                     <div class="card-footer d-flex align-items-center">
-                        <a class="stretched-link link-4" href="{{ route('admin.products') }}">View Details</a>
+                        <a class="stretched-link link-4" href="{{ route('gallery.index') }}">View Details</a>
                     </div>
                 </div>
             </div>

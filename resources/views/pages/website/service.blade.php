@@ -46,7 +46,7 @@
                     </span>
                     </div>
                     <!-- Link -->
-                    <a href="#" class="full-link"></a>
+                    <a href="{{ route('service-detail', $item->id) }}" class="full-link"></a>
                 </div>
                 </div>
             </div>

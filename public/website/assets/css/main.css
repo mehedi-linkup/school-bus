@@ -3347,7 +3347,7 @@ table {
 }
 
 .label-vertical-icons .icon {
-	margin: 0;
+	margin-top: 40px;
 	display: block;
 	font-size: 1rem;
 	-webkit-transition: all 0.3s ease-in-out;
