@@ -43,10 +43,14 @@ class HomeController extends Controller
         return view('pages.website.service', compact('service', 'backimage'));
     }
     public function  serviceDetail($id) {
-        $backimage = BackImage::first();
         $service = Service::find($id);
-        $serviceList = Service::latest()->get();
-        return view('pages.website.service-detail', compact('service', 'serviceList', 'backimage'));
+        if($service) {
+            $serviceList = Service::latest()->get();
+            return view('pages.website.service-detail', compact('service', 'serviceList'));
+        } else {
+            $backimage = BackImage::first();
+            return view('pages.website.not-found', compact('backimage'));
+        }
     }
     public function management() {
         $backimage = BackImage::first();
@@ -59,9 +63,8 @@ class HomeController extends Controller
         return view('pages.website.gallery', compact('backimage', 'gallery'));
     }
     public function video() {
-        $backimage = BackImage::first();
         $video = Video::latest()->get();
-        return view('pages.website.video', compact('video', 'backimage'));
+        return view('pages.website.video', compact('video'));
     }
     public function product() {
         $backimage = BackImage::first();

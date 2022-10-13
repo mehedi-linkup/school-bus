@@ -29,21 +29,21 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{!! $item->email !!}</td>
                                     <td>
-                                        @if(countwords($item->subject) > 10)
-                                        {!! Str::words($item->subject, 10, '...') !!}
+                                        @if(str_word_count(Str::of($item->subject)->words(10)) > 10)
+                                        {!! Str::of($item->subject)->words( 10, '...') !!}
                                         @else
                                         {{ $item->subject }}
                                         @endif
                                     </td>
                                     <td>
-                                        @if(countwords($item->message) > 10)
-                                        {!! Str::words($item->message, 10, '...') !!}
+                                        @if(str_word_count(Str::of($item->message)->words(10)) > 10)
+                                        {!! Str::of($item->message)->words(10, '...') !!}
                                         @else
                                         {{ $item->message }}
                                         @endif
                                     </td>                          
                                     <td>
-                                        @if(countwords($item->message) > 10)
+                                        @if(str_word_count(Str::of($item->message)->words(10)) > 10)
                                         <a href="#staticBackdrop{{ $item->id }}" class="d-inline btn btn-primary btn-sm b-btn mr-1"  data-toggle="modal" style="text-decoration: none;">
                                             <i class="far fa-eye"></i>
                                         </a>

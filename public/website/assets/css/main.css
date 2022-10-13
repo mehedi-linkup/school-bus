@@ -2351,8 +2351,12 @@ button {
 .form-area .was-validated .form-control:valid:focus, .form-area .form-control.is-valid:focus {
 	border-color: var(--success-color);
 }
-
-.form-area .was-validated .form-control:invalid, .form-area .form-control.is-invalid {
+.form-area .was-validated .form-control:invalid {
+	border-color: inherit;
+	padding: 0.75rem;
+	background-image: none;
+}
+.form-area .form-control.is-invalid {
 	border-color: var(--danger-color);
 	padding: 0.75rem;
 	background-image: none;
@@ -3347,9 +3351,9 @@ table {
 }
 
 .label-vertical-icons .icon {
-	margin-top: 40px;
+	margin-top: 20px;
 	display: block;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -3368,8 +3372,8 @@ table {
 @media (max-width: 767px) {
 
 	.label-vertical.outline {
-    bottom: 110%;
-    font-size: 1.5rem;
+		bottom: 110%;
+		font-size: 1.5rem;
 	}
 
 	.label-vertical.outline .label-line {
@@ -3999,7 +4003,7 @@ table {
 	content: '';
 	position: absolute;
 	z-index: -1;
-	bottom: 0;
+	bottom: -10px;
 	left: 0;
 	width: 0;
 	height: 30%;

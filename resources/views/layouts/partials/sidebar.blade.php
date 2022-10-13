@@ -27,7 +27,7 @@
                 <div class="collapse {{ ($pageName == 'content' || $pageName == 'slider' || $pageName == 'service' || $pageName == 'backimage' || $pageName == 'news' || $pageName == 'category' || $pageName == 'subcategory' || $pageName == 'management' || $pageName == 'video' || $pageName == 'gallery' || $pageName == 'product' || $pageName == 'partner' || $pageName == 'whatcontent' ? 'show' : '') }}" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         {{-- <a class="nav-link" href="{{ route('whatwe.edit') }}"><i class="fas fa-minus"></i>&nbsp;About Us</a> --}}
-                        <a class="nav-link" href="{{ route('backimage.edit') }}"><i class="fas fa-minus"></i>&nbsp;Background Image</a>
+                        {{-- <a class="nav-link" href="{{ route('backimage.edit') }}"><i class="fas fa-minus"></i>&nbsp;Background Image</a> --}}
                         <a class="nav-link" href="{{ route('service.index') }}"><i class="fas fa-minus"></i>&nbsp;Service</a>
                         {{-- <a class="nav-link" href="{{ route('admin.categories') }}"><i class="fas fa-minus"></i>&nbsp;Category</a> --}}
                         {{-- <a class="nav-link" href="{{ route('admin.subcategories') }}"><i class="fas fa-minus"></i>&nbsp;Subcategory</a> --}}

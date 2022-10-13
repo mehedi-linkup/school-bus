@@ -14,31 +14,30 @@ class MessageController extends Controller
         $messages = Message::latest()->get();
         return view('pages.admin.message', compact('messages'));
     }
-    public function messageInsert(Request $request) {
-        $validatedData = $request->validate([
-            'name' => 'required|min:4',
-            'email' => 'required|min:4|max:255',
-            'subject' => 'required|min:8|max:255',
-            'message' => 'required|min:12',      
-        ]);
+    public function store(Request $request) {
+        // $validatedData = $request->validate([
+        //     'name' => 'required|min:4',
+        //     'email' => 'required|min:4|max:255',
+        //     'subject' => 'required|min:8|max:255',
+        //     'message' => 'required|min:12',      
+        // ]);
         try {
-            DB::beginTransaction();
             $message = new Message;
             $message->name = $request->name;
             $message->email = $request->email;
             $message->subject = $request->subject;
+            $message->phone = $request->phone;
             $message->message = $request->message;
-            $message->created_at = Carbon::now();
             $message->save();
-            DB::commit();
-            return redirect()->back()->with('success', 'Your message is sent!');
+            if($message){
+                $arr = array('msg' => 'Your query has been submitted Successfully, we will contact you soon!', 'status' => true);
+            }
+            return response()->json($arr);
         } catch (\Exception $e) {
-            DB::rollback();           
-		    // return ["error" => $e->getMessage()];
-            return redirect()->back()->with('error', 'Your message isn\'t delivered!');
+            return response()->json(["error" => $e->getMessage()]);
         }
     }
-    public function messageDelete($id) {
+    public function delete($id) {
         $message = Message::find($id);
         $message->delete();
         return Redirect()->back()->with("success", "Message Deleted Successfully");

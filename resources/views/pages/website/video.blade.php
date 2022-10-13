@@ -1,17 +1,18 @@
 @extends('layouts.website', ['pageName' => 'video'])
 @section('title', 'Video')
 @section('web-content')
-<section id="product-background" class="product-background d-flex" style="background-image: url('{{ asset('/website/assets/image/section-background/'.$backimage->bgimage_other) }}')">
-    <div class="container align-self-center">
+<section id="navigation-path" class="navigation-path">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-12">
-                <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '';">
-                    <ol class="breadcrumb justify-content-center">
-                      <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                      <span>&nbsp;/&nbsp;</span>
-                      <li class="breadcrumb-item active" aria-current="page">Video</li>
-                    </ol>
-                  </nav>
+            <div class="col-lg-12">
+                <div class="hero-cap">
+                    <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&quot;);" aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="https://gtebd.net">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Video</li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

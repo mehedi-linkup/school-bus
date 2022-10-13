@@ -1,14 +1,14 @@
 <header id="header" class="shock-header">
   <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg auto-hide scheme-1 primary scrolled-down scrolled-down-100"
+  <nav id="navbar" class="navbar navbar-expand-lg auto-hide scheme-1 primary {{ $pageName!='home'? 'scrolled-down':''}}"
       style="top: 0px;">
       <div class="container">
           <!-- Brand -->
-          <a class="navbar-brand" href="https://shock-html.codings.dev/">
+          <a class="navbar-brand" href="{{route('home')}}">
               <!-- <div class="site-title">Site Title</div> -->
-              <img src="{{asset('website')}}/assets/img/logo/logo-1.png" data-logo-alt="{{asset('website')}}/assets/img/logo/logo-1.png"
-                  data-logo-mobile="{{asset('website')}}/assets/img/logo-white.svg" alt="Shock Theme" class="logo">
-              <span class="logo-after-text">School Bus</span>
+              <img src="{{asset($content->logo)}}" data-logo-alt="{{asset($content->logo)}}"
+                  data-logo-mobile="{{asset($content->logo)}}" alt="" class="logo">
+              <span class="logo-after-text">{{ $content->name }}</span>
           </a>
           <!-- Responsive menu toggle -->
           <button class="navbar-toggler collapsed" data-bs-target="#navbar-items" data-bs-toggle="collapse"
@@ -48,9 +48,9 @@
               <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
                       <a class="nav-link dropdown-toggle has-icon flutter-underline"
-                          href="{{route('home')}}#">
+                          href="{{route('home')}}">
                           <span class="text">Home</span>
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='home'?'selected':''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
@@ -62,7 +62,7 @@
                       <a class="nav-link has-icon flutter-underline"
                           href="{{ route('about') }}">
                           <span class="text">About Us</span>
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='about'?'selected':''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
@@ -74,7 +74,7 @@
                       <a class="nav-link has-icon flutter-underline"
                           href="{{route('service')}}">
                           <span class="text">Service</span>
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='service'?'selected':''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
@@ -86,7 +86,7 @@
                       <a class="nav-link has-icon flutter-underline"
                           href="{{route('management')}}">
                           <span class="text">Management</span>
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='management'?'selected':''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
@@ -98,7 +98,7 @@
                       <a class="nav-link dropdown-toggle has-icon flutter-underline"
                           href="{{route('gallery')}}" data-bs-toggle="dropdown">
                           <span class="text">Gallery</span><img class="image-icon dropdown-icon" src="{{asset('website/assets/svg/chevron-down-outline.svg')}}" alt="Icon name" data-shock-icon="32" />
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='gallery'? 'selected': ''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">
@@ -117,7 +117,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item ps-1">
-                                        <a href="home-2.html" class="nav-link parent">
+                                        <a href="{{ route('video') }}" class="nav-link parent">
                                         <span class="text">Video Gallery</span>
                                         </a>
                                     </li>
@@ -132,7 +132,7 @@
                       <a class="nav-link has-icon flutter-underline"
                           href="{{ route('contact-us') }}">
                           <span class="text">Contact Us</span>
-                          <svg class="flutter-underline-graphic" width="300%" height="100%" viewBox="0 0 1200 60"
+                          <svg class="flutter-underline-graphic {{$pageName=='contact-us'?'selected':''}}" width="300%" height="100%" viewBox="0 0 1200 60"
                               preserveAspectRatio="none">
                               <path
                                   d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0">

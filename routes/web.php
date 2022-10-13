@@ -3,25 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\MapController;
-use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Admin\WhatweController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MessageController;
-use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\BackImageController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\MessengerController;
 use App\Http\Controllers\Admin\ManagementController;
-use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\RegistrationController;
 use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\CompanyProfileController;
+// use App\Http\Controllers\Admin\NewsController;
+// use App\Http\Controllers\Admin\QueryController;
+// use App\Http\Controllers\Admin\WhatweController;
+// use App\Http\Controllers\Admin\PartnerController;
+// use App\Http\Controllers\Admin\ProductController;
+// use App\Http\Controllers\Admin\CategoryController;
+// use App\Http\Controllers\Admin\BackImageController;
+// use App\Http\Controllers\Admin\MessengerController;
+// use App\Http\Controllers\Admin\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +41,16 @@ Route::get('/service-detail/{id}', [HomeController::class, 'serviceDetail'])->na
 Route::get('/management', [HomeController::class, 'management'])->name('management');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/video', [HomeController::class, 'video'])->name('video');
-Route::get('/product', [HomeController::class, 'product'])->name('product');
-Route::get('/category/subcategroy/{id}', [HomeController::class, 'subcategory'])->name('subcategory');
-Route::get('/category/subcategory/product/{id}', [HomeController::class, 'productSubcate'])->name('product.subcate');
-Route::get('/product-detail/{id}', [HomeController::class, 'productDetail'])->name('productDetail');
-Route::get('/news-offers', [HomeController::class, 'news'])->name('news');
-Route::get('/news-detail/{id}', [HomeController::class, 'newsDetail'])->name('newsDetail');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
+// Route::get('/product', [HomeController::class, 'product'])->name('product');
+// Route::get('/category/subcategroy/{id}', [HomeController::class, 'subcategory'])->name('subcategory');
+// Route::get('/category/subcategory/product/{id}', [HomeController::class, 'productSubcate'])->name('product.subcate');
+// Route::get('/product-detail/{id}', [HomeController::class, 'productDetail'])->name('productDetail');
+// Route::get('/news-offers', [HomeController::class, 'news'])->name('news');
+// Route::get('/news-detail/{id}', [HomeController::class, 'newsDetail'])->name('newsDetail');
+
 
 // login
 Route::get('admin', [AuthenticationController::class, 'login'])->name('login');
@@ -70,27 +73,6 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('/settings', [RegistrationController::class, 'settings'])->name('settings');
     Route::put('/registration', [RegistrationController::class, 'profileUpdate'])->name('register.update');
 
-    // Category Routes
-    Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
-    Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
-    Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
-    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
-    Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
-
-    // Subcategory Routes
-    Route::get('/subcategories', [SubcategoryController::class, 'index'])->name('admin.subcategories');
-    Route::post('/subcategory/store', [SubcategoryController::class, 'store'])->name('admin.subcategory.store');
-    Route::get('/subcategory/edit/{id}', [SubcategoryController::class, 'edit'])->name('admin.subcategory.edit');
-    Route::post('/subcategory/update/{id}', [SubcategoryController::class, 'update'])->name('admin.subcategory.update');
-    Route::get('/subcategory/delete/{id}', [SubcategoryController::class, 'destroy'])->name('admin.subcategory.delete');
-
-    // Product Routes
-    Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
-    Route::post('/product/store', [ProductController::class, 'store'])->name('admin.product.store');
-    Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
-    Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
-    Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
-    Route::get('/product/subcategory/get/{subcat_id}', [ProductController::class, 'getSubCate'])->name('admin.product.get.subcat');
 
     // Service Route
     Route::get('/services', [ServiceController::class, 'service'])->name('service.index');
@@ -105,23 +87,13 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('gallery/edit/{id}', [GalleryController::class, 'galleryEdit'])->name('edit.gallery');
     Route::post('gallery/update/{id}', [GalleryController::class, 'galleryUpdate'])->name('update.gallery');
     Route::get('gallery/delete/{id}', [GalleryController::class, 'galleryDelete'])->name('delete.gallery');
-    
-    // Video Route
+
     Route::get('/videos', [VideoController::class, 'index'])->name('videos');
     Route::post('video/insert', [VideoController::class, 'store'])->name('store.video');
     Route::get('video/edit/{id}', [VideoController::class, 'edit'])->name('edit.video');
     Route::post('video/update/{id}', [VideoController::class, 'update'])->name('update.video');
     Route::get('video/delete/{id}', [VideoController::class, 'delete'])->name('delete.video');
 
-    // News Route
-    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-    Route::post('news/insert', [NewsController::class, 'store'])->name('store.news');
-    Route::get('news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
-    Route::post('news/update/{id}', [NewsController::class, 'update'])->name('news.update');
-    Route::get('news/delete/{id}', [NewsController::class, 'delete'])->name('news.delete');
-
-
-    // Management Route
     Route::get('managements', [ManagementController::class, 'index'])->name('management.index');
     Route::post('management/store', [ManagementController::class, 'store'])->name('management.store');
     Route::get('management/edit/{id}', [ManagementController::class, 'edit'])->name('management.edit');
@@ -134,23 +106,54 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::post('slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('slider/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
 
-    Route::get('whatwe', [WhatweController::class, 'edit'])->name('whatwe.edit');
-    Route::put('whatwe/{whatwe}', [WhatweController::class, 'update'])->name('whatwe.update');
-
     Route::get('/map', [MapController::class, 'edit'])->name('maps.edit');
     Route::put('/map/{map}', [MapController::class, 'update'])->name('maps.update');
-
-    Route::get('/messenger', [MessengerController::class, 'edit'])->name('messenger.edit');
-    Route::put('/messenger/{messenger}', [MessengerController::class, 'update'])->name('messenger.update');
-
-    Route::get('backimage', [BackImageController::class, 'edit'])->name('backimage.edit');
-    Route::put('backimage/{backimage}', [BackImageController::class, 'update'])->name('backimage.update');
 
     Route::get('/messages', [MessageController::class, 'message'])->name('admin.message');
     Route::get('messages/delete/{id}', [MessageController::class, 'messageDelete'])->name('admin.message.delete');
     
-    Route::get('/queries', [QueryController::class, 'query'])->name('admin.query');
-    Route::get('queries/delete/{id}', [QueryController::class, 'queryDelete'])->name('admin.query.delete');
 
-    Route::resource('/partner', PartnerController::class)->except('show', 'create');
+    // Category Routes
+    // Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
+    // Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
+    // Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
+    // Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+    // Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
+
+    // Subcategory Routes
+    // Route::get('/subcategories', [SubcategoryController::class, 'index'])->name('admin.subcategories');
+    // Route::post('/subcategory/store', [SubcategoryController::class, 'store'])->name('admin.subcategory.store');
+    // Route::get('/subcategory/edit/{id}', [SubcategoryController::class, 'edit'])->name('admin.subcategory.edit');
+    // Route::post('/subcategory/update/{id}', [SubcategoryController::class, 'update'])->name('admin.subcategory.update');
+    // Route::get('/subcategory/delete/{id}', [SubcategoryController::class, 'destroy'])->name('admin.subcategory.delete');
+
+    // Product Routes
+    // Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
+    // Route::post('/product/store', [ProductController::class, 'store'])->name('admin.product.store');
+    // Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
+    // Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+    // Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
+    // Route::get('/product/subcategory/get/{subcat_id}', [ProductController::class, 'getSubCate'])->name('admin.product.get.subcat');
+
+    // News Route
+    // Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+    // Route::post('news/insert', [NewsController::class, 'store'])->name('store.news');
+    // Route::get('news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+    // Route::post('news/update/{id}', [NewsController::class, 'update'])->name('news.update');
+    // Route::get('news/delete/{id}', [NewsController::class, 'delete'])->name('news.delete');
+
+
+    // Route::get('whatwe', [WhatweController::class, 'edit'])->name('whatwe.edit');
+    // Route::put('whatwe/{whatwe}', [WhatweController::class, 'update'])->name('whatwe.update');
+
+
+    // Route::get('/messenger', [MessengerController::class, 'edit'])->name('messenger.edit');
+    // Route::put('/messenger/{messenger}', [MessengerController::class, 'update'])->name('messenger.update');
+
+    // Route::get('backimage', [BackImageController::class, 'edit'])->name('backimage.edit');
+    // Route::put('backimage/{backimage}', [BackImageController::class, 'update'])->name('backimage.update');
+    // Route::get('/queries', [QueryController::class, 'query'])->name('admin.query');
+    // Route::get('queries/delete/{id}', [QueryController::class, 'queryDelete'])->name('admin.query.delete');
+
+    // Route::resource('/partner', PartnerController::class)->except('show', 'create');
 });

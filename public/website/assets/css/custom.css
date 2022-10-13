@@ -1,0 +1,97 @@
+.navigation-path {
+    margin-top: 72px;
+    padding-top: 30px;
+}
+.section-padding {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.navigation-path .hero-cap ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.service-detail .title {
+    background-color: #8f93a5;
+    font-weight: 700;
+    font-size: 17px;
+    font-family: 'roboto',sans-serif;
+}
+.service-detail .post-category-widget {
+    background: #fbf9ff;
+    padding: 5px 5px 0px 10px;
+    border: 1px solid #8f93a5;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.service-detail .post-category-widget ul {
+    padding-left: 2px;
+    list-style: none;
+    margin-bottom: 10px;
+}
+.service-detail .post-category-widget ul li {
+    border-bottom: 1px solid #f0e9ff;
+    padding-bottom: 2px;
+}
+.service-detail .post-category-widget ul li a {
+    color: #10285dcc;
+    line-height: 30px;
+    font-family: 'barlow', sans-serif;
+    background-color: #fff;
+    display: block;
+    box-shadow: 0px 1px 3px #ccc;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.service-detail .follow-us .social-icon {
+    padding: 5px;
+}
+.service-detail .follow-us .social-icon a {
+    height: 36px;
+    width: 36px;
+    transition: ease-in-out 0.3s;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    color: #37517e;
+    text-decoration: none;
+}
+.service-detail .follow-us .social-icon a i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.service-detail .follow-us .social-icon a i.facebook {
+    color: #3b5998;
+}
+.service-detail .follow-us .social-icon a i.youtube {
+    color: #FF0000
+}
+.service-detail .follow-us .social-icon a i.instagram {
+    color: #fb3958;
+}
+.service-detail .follow-us .social-icon a i.linkedin {
+    color: #0077b5;
+}
+.service-detail .follow-us .social-icon a i.twitter {
+    color: #00acee;
+}
+
+/* management */
+
+.label-vertical-icons .icon.fa-facebook-f {
+ color: #3b5998;
+}
+.label-vertical-icons .icon.fa-twitter {
+    color: #00acee;
+}
+.label-vertical-icons .icon.fa-instagram {
+    color: #fb3958;
+}
+.navigation-path ol > li, .navigation-path ul > li {
+    margin: 0;
+}
+
+.selected {
+    opacity: 1;
+}

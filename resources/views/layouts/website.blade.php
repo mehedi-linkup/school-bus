@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="School Bus Stop"/>
     <meta name="keywords" content="School Bus"/>
-	  <meta name="author" content="School Bus"/>
+    <meta name="author" content="School Bus"/>
     <meta name="description" content="This is school bus project the text is available only for seo">
-
-    <!-- Themes Link -->
-    <!-- https://shock-html.codings.dev/home-7.html -->
-    <!-- FAVICONS ICON -->
     <link rel="shortcut icon" href="{{asset($content->logo)}}" type="image/x-icon">
     <!-- Vendor Style Sheet -->
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/vendor/font-family.min.css">
@@ -29,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/theme.css">
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/core.css">
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/main.css">
+    <link rel="stylesheet" href="{{asset('website')}}/assets/css/custom.css">
     @stack('web-css')
 	<!-- PAGE TITLE HERE -->
     <title>@yield('title') - School Bus</title>

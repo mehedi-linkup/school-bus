@@ -115,7 +115,7 @@
                         <h6 class="title">Map</h6>
                         <!-- Text -->
                         <div class="footer-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10331.036087892808!2d90.40759904157416!3d23.726943688763008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8f784eeb7c3%3A0x34c146ea8a78c06!2sShohid%20Noor%20Hossain%20Square%2C%20Dhaka%201000!5e0!3m2!1sen!2sbd!4v1664775150072!5m2!1sen!2sbd" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="{{ $map->link }}" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

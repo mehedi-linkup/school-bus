@@ -128,18 +128,15 @@
                         <!-- Box -->
                         <div class="card-body box shadow rounded bg-color white">
                             <span class="label-vertical-icons">
-                                <a href="{{ $item->facebook }}"
+                                <a href="{{ $item->facebook }}" target="_blank"
                                     class="link primary-50 primary-hover"><i class="icon fab fa-facebook-f"></i></a>
-                                <a href="{{ $item->twitter }}"
+                                <a href="{{ $item->twitter }}" target="_blank"
                                     class="link primary-50 primary-hover"><i class="icon fab fa-twitter"></i></a>
-                                <a href="{{ $item->instagram }}"
+                                <a href="{{ $item->instagram }}" target="_blank"
                                     class="link primary-50 primary-hover"><i class="icon fab fa-instagram"></i></a>
                             </span>
-                            <h3 class="title text-style-11 black">Alice Johnson</h3>
+                            <h3 class="title text-style-11 black">{{ $item->name }}</h3>
                             <p class="description">{{$item->designation}}</p>
-                            {{-- <p class="description">This is the most amazing product I have ever seen. I am very
-                                happy with the delivery time.</p> --}}
-                            {{-- <span class="fas fa-quote-right overlay-icon gray-50"></span> --}}
                         </div>
                     </div>
                 </div>
@@ -149,9 +146,7 @@
         </div>
     </section>
 
-  
     <section id="gallery" class="gallery shock-section pt-4 pb-4 js-auto-width">
-
         <div class="container">
             <div class="row mb-35">
                 <div class="col-12 col-md-12">
@@ -225,68 +220,54 @@
                                 <span class="text-1 text-style-7">How can </span>
                                 <span class="text-2 text-style-8">we help you?</span>
                             </h2>
+                            <div class="alert alert-success d-none" id="msg_div">
+                                <span id="res_message"></span>
+                            </div>
                             <div class="description gray">
                                 <p>Please fill in the form below and we will get back to you shortly. 🥳</p>
                             </div>
                         </div>
                         <!-- Form -->
                         <div class="form-area scheme-1 primary">
-                            <form class="form-fields needs-validation" novalidate="novalidate">
+                            <form method="post" id="contactForm" class="form-fields needs-validation" novalidate="novalidate">
+                                @csrf
                                 <div class="form-row row">
                                     <div class="form-col form-floating col-12 col-md-6">
                                         <input type="text" class="form-control" id="InputFloatingName"
                                             placeholder="Name" required="required">
                                         <label for="InputFloatingName" class="form-label">Name</label>
-                                        <div class="invalid-feedback">Please enter your name.</div>
-                                        <div class="valid-feedback">Looks good.</div>
+                                        <span id="name-error" class="text-danger"></span>
                                     </div>
                                     <div class="form-col form-floating col-12 col-md-6">
                                         <input type="email" class="form-control" id="InputFloatingEmail"
                                             placeholder="name@example.com" required="required">
                                         <label for="InputFloatingEmail" class="form-label">Email</label>
-                                        <div class="invalid-feedback">Please enter a valid email address.</div>
-                                        <div class="valid-feedback">Looks good.</div>
+                                        <span id="email-error" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="form-row row">
                                     <div class="form-col form-floating col-12 col-md-6">
-                                        <input type="text" class="form-control" id="InputFloatingEducation"
-                                            placeholder="Education">
-                                        <label for="InputFloatingEducation" class="form-label">Education</label>
-                                        <div class="valid-feedback">It's optional, but we'd like to know about it :)
-                                        </div>
+                                        <input type="text" class="form-control" id="InputFloatingSubject"
+                                            placeholder="Short Subject">
+                                        <label for="InputFloatingSubject" class="form-label">Subject</label>
+                                        <span id="subject-error" class="text-danger"></span>
                                     </div>
                                     <div class="form-col form-floating col-12 col-md-6">
-                                        <input id="InputFloatingCategory" class="form-control form-datalist"
-                                            list="InputFloatingCategoryOptions" placeholder="Category"
-                                            required="required">
-                                        <label for="InputFloatingCategory" class="form-label">Category</label>
-                                        <datalist id="InputFloatingCategoryOptions">
-                                            <option value="Business"></option>
-                                            <option value="Engineering"></option>
-                                            <option value="Cosmetics"></option>
-                                            <option value="Architecture"></option>
-                                            <option value="Marketing"></option>
-                                            <option value="Technology"></option>
-                                        </datalist>
-                                        <div class="invalid-feedback">Please choose a category.</div>
-                                        <div class="valid-feedback">Looks good.</div>
+                                        <input type="number" class="form-control" id="InputFloatingPhone"
+                                            placeholder="+880" required="required">
+                                        <label for="InputFloatingPhone" class="form-label">Phone</label>
+                                        <span id="phone-error"></span>
                                     </div>
                                 </div>
                                 <div class="form-row row">
-                                    <div class="form-col col-12 col-md-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="InputCheckbox" required="required">
-                                            <label class="form-label form-check-label" for="InputCheckbox">
-                                                I agree to the <a
-                                                    href="https://shock-html.codings.dev/home-4.html#your-link"
-                                                    class="link black primary-hover"><u>terms of use</u>.</a>
-                                            </label>
-                                            <div class="invalid-feedback">Please accept the terms to continue.</div>
-                                        </div>
+                                    <div class="form-col form-floating col-12">
+                                      <textarea class="form-control primary form-textarea" id="InputFloatingMessage" rows="3" placeholder="Enter your message (optional)."></textarea>
+                                      <label for="InputFloatingMessage" class="form-label">Message</label>
+                                      <span id="message-error" class="text-danger"></span>
                                     </div>
-                                    <div class="form-col form-floating col-12 col-md-6 align-h-right">
+                                  </div>
+                                <div class="form-row row">
+                                    <div class="form-col form-floating col-12 col-md-6 offset-md-6 align-h-right">
                                         <!-- Button -->
                                         <button class="button arrow-button next scheme-1 primary">
                                             <span class="arrow">
@@ -327,5 +308,79 @@
                     : el_autohide.classList.remove("scrolled-up", "scrolled-down", "scrolled-down-100"),
                     e > 101 && el_autohide.classList.add("scrolled-down-100");
             }));
+    </script>
+    <script>
+        $("#InputFloatingName").keyup(function(){
+            $("#InputFloatingName").css("background-color", "pink");
+        });
+        InputFloatingEmail
+        InputFloatingSubject
+        InputFloatingPhone
+        $('#contactForm').on('submit',function(event) {
+            event.preventDefault();
+            name = $('#InputFloatingName').val();
+            email = $('#InputFloatingEmail').val();
+            subject = $('#InputFloatingSubject').val();
+            phone = $('#InputFloatingPhone').val();
+            message = $('#InputFloatingMessage').val();
+			if(name == "" || name == undefined || name == null){
+				$(`#InputFloatingName`).addClass(' is-invalid');
+				$(`#name-error`).text('please enter name');
+				$(`#InputFloatingName`).focus();
+			}
+			else if(email==0|| email == undefined || email ==null){
+				$("#InputFloatingEmail").addClass(' is-invalid');
+				$("#email-error").text('please enter email id');
+				$("#InputFloatingEmail").focus();
+			}
+            else if(subject==0|| subject == undefined || subject ==null){
+				$("#InputFloatingSubject").addClass(' is-invalid');
+				$("#subject-error").text('please enter subject');
+				$("#InputFloatingSubject").focus();
+			}
+            else if(phone == "" || phone == undefined || phone == null){
+				$("#InputFloatingPhone").addClass(' is-invalid');
+				$("#phone-error").text('please enter phone number');
+				$("#InputFloatingPhone").focus();
+			}
+			else if(message == "" || message == undefined || message == null){
+				$("#InputFloatingMessage").addClass(' is-invalid');
+				$("#message-error").text('please enter message');
+				$("#InputFloatingMessage").focus();
+			}
+			else {
+                $.ajax({
+                    url: "/message/store",
+                    type:"POST",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        name:name,
+                        email:email,
+                        subject:subject,
+                        phone:phone,
+                        message:message,
+                    },
+                    success: function(response) {
+                        $('#res_message').show();
+                        $('#msg_div').show();
+                        $('#res_message').html(response.msg);
+                        $('#msg_div').removeClass('d-none');
+                        
+
+                        $(`#name-error`).empty();
+                        $("#email-error").empty();
+                        $("#subject-error").empty();
+                        $("#phone-error").empty();
+                        $("#message-error").empty();
+                
+                        document.getElementById("contactForm").reset();
+                        setTimeout(function() {
+                            $('#res_message').hide();
+                            $('#msg_div').hide();
+                        }, 4000);
+                    },
+                });
+            }
+        });
     </script>
 @endpush
